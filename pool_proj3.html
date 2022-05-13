@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!----------------------------------->
+<!-- Gregory Zacharko -->
+<!-- Intro to Computer Graphics -->
+<!-- Professor Rabbitz -->
+<!-- Spring 2022 Semester -->
+<!-- 3/30/2022 -->
+<!-- Project 3: Billiards Game -->
+<!----------------------------------->
+<html>
+<head>
+    <title>Project 3: Billiards Game</title>
+    
+    <!-- Vertex Shader -->
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec2 vPosition;
+    uniform mat4 P;
+    uniform mat4 MV;
+    
+    void main()
+    {
+        gl_Position = P * MV * vec4(vPosition, 0, 1);   // Set gl_Position
+    }
+    </script>
+    
+    <!-- Fragment Shader -->
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform vec3 color;     // Declare a uniform variable in fragment shader
+    
+    void main()
+    {
+        gl_FragColor = vec4(color, 1.0);
+    }
+    </script>
+
+    <!-- JavaScript (JS) Files -->
+    <script type="text/javascript" src="initShaders.js"></script>
+    <script type="text/javascript" src="MVnew.js"></script>
+    <script type="text/javascript" src="pool_proj3.js"></script>
+</head>
+<body>
+    <!-- Canvas -->
+    <canvas id="gl-canvas" width="1280" height="720">
+    Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+</body>
+</html>
